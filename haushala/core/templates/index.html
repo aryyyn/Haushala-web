@@ -180,6 +180,8 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            cursor: not-allowed;
+           
         }
 
         footer {
@@ -189,9 +191,10 @@
             text-align: center;
             margin-top: 4rem;
         }
+
         .app-btn i {
-        font-size: 1.5rem;
-    }   
+            font-size: 1.5rem;
+        }
 
         footer p {
             margin-bottom: 1rem;
@@ -234,6 +237,8 @@
             <div class="logo">
                 <img src="{% static 'haushala.png' %}" alt="haushala-logo">
             </div>
+            
+           
         </nav>
 
         <section class="hero-section">
@@ -248,11 +253,11 @@
             </div>
         </section>
         <div class="app-buttons">
-            <a href="#" class="app-btn">
+            <a href="" class="app-btn">
                 <i class="fab fa-apple"></i>
                 App Store
             </a>
-            <a href="#" class="app-btn">
+            <a href="" class="app-btn">
                 <i class="fab fa-google-play"></i>
                 Google Play
             </a>
@@ -292,7 +297,7 @@
         <section class="join-team">
             <h2>Help Us Build Haushala</h2>
             <p>We’re building a mobile app to revolutionize mental health care. If you are passionate about mental
-                wellness and technology, we’d love to have you join our team!</p>
+                wellness and technology, we’d love to have us!</p>
             <form method="POST">
                 {% csrf_token %}
                 <div class="form-group">
@@ -318,6 +323,10 @@
             <i class="fab fa-github"></i> GitHub
         </a>
     </footer>
+
+    <script>
+
+    </script>
 
 
 </body>
