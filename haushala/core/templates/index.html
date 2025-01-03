@@ -1,0 +1,322 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haushala - Mental Wellness App</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        :root {
+            --primary: #2DD4BF;
+            --secondary: #34D399;
+            --background: #F0FDFA;
+            --text: #115E59;
+            --accent: #FB923C;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .construction-banner {
+            background: linear-gradient(135deg, var(--accent), #0bde00);
+            color: white;
+            text-align: center;
+            padding: 0.75rem;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 2rem;
+
+        }
+
+        .navbar .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #34D399;
+        }
+
+
+
+
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+
+        .ai-highlight {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 2rem;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+
+        .key-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 4rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+
+        .join-team {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .apply-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .apply-btn:hover {
+            opacity: 0.9;
+        }
+
+        .app-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .app-btn {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            opacity: 0.8;
+        }
+
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .key-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="construction-banner">
+        <i class="fas fa-tools"></i> &nbsp;Under Construction - Coming Soon!
+    </div>
+    <div class="container">
+
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{% static 'haushala.png' %}" alt="haushala-logo">
+            </div>
+        </nav>
+
+        <section class="hero-section">
+            <div class="hero-text">
+                <h1>AI-Powered Mental Health Support</h1>
+                <p>"Haushala," meaning "courage" in Nepali, is more than just an app — it's your mobile companion on the
+                    journey to better mental well-being. This mobile application is designed to offer guidance, provide
+                    resources, and lend a supportive hand to those navigating mental health challenges.</p>
+                <p>Powered by AI, Haushala will empower you with personalized mental health insights, strategies, and
+                    resources, tailored specifically to your needs. Whether you're at home or on the go, Haushala is
+                    here to support you.</p>
+            </div>
+        </section>
+        <div class="app-buttons">
+            <a href="#" class="app-btn">
+                <i class="fab fa-apple"></i>
+                App Store
+            </a>
+            <a href="#" class="app-btn">
+                <i class="fab fa-google-play"></i>
+                Google Play
+            </a>
+        </div>
+
+        <section class="ai-highlight">
+            <i class="fas fa-brain" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+            <h2>Empowered by Advanced AI for Your Well-Being</h2>
+            <p>Haushala's intelligent AI system is designed to provide personalized support for your mental health. From
+                delivering tailored resources to offering insights and motivational encouragement, it’s your personal
+                guide on the journey toward emotional wellness.</p>
+        </section>
+
+
+        <section class="key-features">
+            <div class="feature-card">
+                <i class="fas fa-robot feature-icon"></i>
+                <h3>AI-Driven Support</h3>
+                <p>Get personalized mental health guidance powered by advanced AI, anytime and anywhere on your mobile
+                    device.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line feature-icon"></i>
+                <h3>Smart Mood Tracking</h3>
+                <p>Track your mood, wellness, and progress with intelligent AI tools that help you understand your
+                    emotional journey.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt feature-icon"></i>
+                <h3>Privacy & Security First</h3>
+                <p>Your mental health data is safe with us. We ensure that your information is protected and kept
+                    confidential.</p>
+            </div>
+        </section>
+
+
+        <section class="join-team">
+            <h2>Help Us Build Haushala</h2>
+            <p>We’re building a mobile app to revolutionize mental health care. If you are passionate about mental
+                wellness and technology, we’d love to have you join our team!</p>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Why do you want to contribute to Haushala?</label>
+                    <textarea name="message" id="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="apply-btn">Join Our Team</button>
+            </form>
+        </section>
+
+    </div>
+    <footer>
+        <p>This project is open-source. Designed and developed by Aryan.</p>
+        <a href="https://github.com/aryyyn/Haushala-web" target="_blank">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+    </footer>
+
+
+</body>
+
+</html>
