@@ -181,7 +181,7 @@
             align-items: center;
             gap: 0.5rem;
             cursor: not-allowed;
-           
+
         }
 
         footer {
@@ -208,6 +208,159 @@
 
         footer a:hover {
             opacity: 0.8;
+        }
+
+        .mobile-showcase {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 4rem 2rem;
+            margin: 3rem 0;
+            border-radius: 12px;
+            color: white;
+        }
+
+        .mobile-showcase h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mobile-showcase .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .phone-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        @media (min-width: 992px) {
+            .phone-display {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .phone-carousel {
+                width: 45%;
+            }
+
+            .app-features {
+                width: 45%;
+            }
+        }
+
+        .phone-carousel {
+            position: relative;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .phone-slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .phone-slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .phone-frame {
+            position: relative;
+            width: 100%;
+            padding: 12px;
+            background: #111;
+            border-radius: 36px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .phone-screen {
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            display: block;
+        }
+
+        .screen-caption {
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        .screen-caption h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .screen-caption p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .carousel-dots {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: white;
+        }
+
+        .app-features {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .feature h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature p {
+            font-size: 0.95rem;
+            opacity: 0.9;
         }
 
 
@@ -237,8 +390,8 @@
             <div class="logo">
                 <img src="{% static 'haushala.png' %}" alt="haushala-logo">
             </div>
-            
-           
+
+
         </nav>
 
         <section class="hero-section">
@@ -293,6 +446,50 @@
             </div>
         </section>
 
+        <section class="mobile-showcase">
+            <div class="container">
+                <h2>Experience Haushala</h2>
+                <p class="subtitle">Your mental wellness companion in your pocket</p>
+
+                <div class="phone-display">
+                    <div class="phone-carousel">
+                        <div class="phone-slide active">
+                            <div class="phone-frame">
+                                <img src="{% static 'welcome.png' %}" alt="Haushala Welcome Screen"
+                                    class="phone-screen">
+                            </div>
+                        </div>
+                        <div class="phone-slide">
+                            <div class="phone-frame">
+                                <img src="{% static 'dashboard.png' %}" alt="Haushala Home Screen" class="phone-screen">
+                            </div>
+                        </div>
+                        <div class="carousel-dots">
+                            <span class="dot active" onclick="changeSlide(0)"></span>
+                            <span class="dot" onclick="changeSlide(1)"></span>
+                        </div>
+                    </div>
+
+                    <div class="app-features">
+                        <div class="feature">
+                            <i class="fas fa-heart feature-icon" style="color: white;"></i>
+                            <h4>Personalized Experience</h4>
+                            <p>Tailored support based on your unique mental health journey.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-mobile-alt feature-icon" style="color: white;"></i>
+                            <p>Available anytime, anywhere on your mobile device.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shield-alt feature-icon" style="color: white;"></i>
+                            <h4>Emergency Support</h4>
+                            <p>Quick access to SOS resources when you need them most.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <section class="join-team">
             <h2>Help Us Build Haushala</h2>
@@ -326,6 +523,35 @@
 
     <script>
 
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.phone-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function changeSlide(n) {
+
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+
+
+            currentSlide = n;
+
+
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+
+        setInterval(() => {
+            changeSlide(currentSlide + 1);
+        }, 5000);
     </script>
 
 
